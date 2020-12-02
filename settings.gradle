@@ -1,2 +1,3 @@
+include ':homework1'
 include ':app'
 rootProject.name = "AndroidHomeworks"
