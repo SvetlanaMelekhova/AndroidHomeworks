@@ -18,6 +18,27 @@
     <string name="description">Description</string>
     <string name="inventory">Inventory</string>
     <string name="weight">Weight</string>
+    <string name="singIn">Sing in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember">Remember</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="justSignIn">Just sign in</string>
+    <string name="android">Android</string>
+    <string name="posts">125 Posts</string>
+    <string name="followers">20K Followers</string>
+    <string name="following">22 Following</string>
+    <string name="userName">Username</string>
+    <string name="address">Address</string>
+    <string name="directions">DIRECTIONS</string>
+    <string name="call">CALL</string>
+    <string name="save">SAVE</string>
+    <string name="website">WEBSITE</string>
+
+
+
+
+
 
 
 
