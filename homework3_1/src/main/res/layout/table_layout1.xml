@@ -1,232 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-        <TextView
-            android:id="@+id/textViewSpan"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:text="@string/poi"
-            android:background="@color/darkCyan"
-            android:textSize="30sp"
-            android:textColor="@color/white"
-            android:paddingStart="20dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp"/>
-
-   <TableRow>
-
-       <ImageView
-           android:layout_width="wrap_content"
-           android:layout_height="60dp"
-           android:src="@drawable/ic_baseline_folder_24"
-           android:contentDescription="@string/attractions"
-           android:gravity="center"/>
-
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:text="@string/attractions"
-           android:textColor="@color/black"
-           android:textSize="25sp"
-           android:paddingStart="30dp"
-           android:paddingEnd="0dp"
-           android:paddingTop="20dp"/>
-
-   </TableRow>
+    <TextView
+        android:id="@+id/textViewSpan"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/darkCyan"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="0dp"
+        android:text="@string/poi"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
     <TableRow>
-
-
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_local_dining_24"
-            />
+            android:contentDescription="@string/attractions"
+            android:gravity="center"
+            android:src="@drawable/ic_baseline_folder_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
+            android:text="@string/attractions"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:contentDescription="@string/dining"
+            android:src="@drawable/ic_baseline_local_dining_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="0dp"
             android:text="@string/dining"
             android:textColor="@color/black"
-            android:textSize="22sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="15dp" />
+            android:textSize="22sp" />
 
     </TableRow>
+
     <TableRow
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_school_24"
-            />
+            android:contentDescription="@string/education"
+            android:src="@drawable/ic_baseline_school_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/education"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp"/>
+            android:textSize="25sp" />
 
     </TableRow>
-    <TableRow
 
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_favorite_24"
-            />
+            android:contentDescription="@string/health"
+            android:src="@drawable/ic_baseline_favorite_24" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/health"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp" />
+            android:textSize="25sp" />
 
     </TableRow>
-    <TableRow
 
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_business_24"
-            />
+            android:contentDescription="@string/office"
+            android:src="@drawable/ic_baseline_business_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/office"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp" />
+            android:textSize="25sp" />
 
     </TableRow>
 
     <TableRow
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            />
+            android:contentDescription="@string/promotions"
+            android:src="@drawable/ic_baseline_shopping_cart_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/promotions"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp"/>
+            android:textSize="25sp" />
 
     </TableRow>
-    <TableRow
 
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_radio_24"
-            />
+            android:contentDescription="@string/radio"
+            android:src="@drawable/ic_baseline_radio_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/radio"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp" />
+            android:textSize="25sp" />
 
     </TableRow>
 
     <TableRow
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_book_24"
-            />
+            android:contentDescription="@string/recipes"
+            android:src="@drawable/ic_baseline_book_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/recipes"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp" />
+            android:textSize="25sp" />
 
     </TableRow>
 
     <TableRow
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_directions_bike_24"
-
-            />
+            android:contentDescription="@string/sports"
+            android:src="@drawable/ic_baseline_directions_bike_24" />
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="30dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
             android:text="@string/sports"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="20dp" />
+            android:textSize="25sp" />
 
     </TableRow>
-
 
 </TableLayout>

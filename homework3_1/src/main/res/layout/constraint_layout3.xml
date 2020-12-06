@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textViewSpan"
@@ -11,15 +10,15 @@
         android:layout_height="120dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:paddingStart="14dp"
-        android:paddingEnd="0dp"
-        android:paddingTop="40dp"
-        android:textStyle="bold"
         android:gravity="start"
+        android:paddingStart="14dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="0dp"
         android:text="@string/singIn"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/email"
@@ -36,14 +35,14 @@
         android:paddingEnd="0dp"
         android:paddingBottom="5dp"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/textViewSpan"/>
+        app:layout_constraintTop_toBottomOf="@id/textViewSpan" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:autofillHints="@string/password"
         android:background="@drawable/edit_text"
@@ -54,39 +53,39 @@
         android:paddingEnd="25dp"
         android:paddingBottom="5dp"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/email"/>
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
     <CheckBox
         android:id="@+id/checkBoxRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:checked="true"
         android:paddingStart="10dp"
         android:paddingEnd="0dp"
-        android:checked="true"
+        android:text="@string/remember"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="@string/remember"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
         android:text="@string/forgotPassword"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        app:layout_constraintStart_toEndOf="@id/checkBoxRemember"/>
+        app:layout_constraintStart_toEndOf="@id/checkBoxRemember"
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <Button
-        style="@style/DefaultButtonAppearance"
         android:id="@+id/button_signIn"
+        style="@style/DefaultButtonAppearance"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
@@ -97,17 +96,17 @@
         android:text="@string/singIn"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/checkBoxRemember"/>
+        app:layout_constraintTop_toBottomOf="@id/checkBoxRemember" />
 
     <TextView
         android:id="@+id/text_JustSingIn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|bottom"
-        android:text="@string/justSignIn"
         android:paddingBottom="10dp"
+        android:text="@string/justSignIn"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

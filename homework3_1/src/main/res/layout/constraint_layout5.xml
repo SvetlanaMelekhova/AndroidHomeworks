@@ -1,9 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView_1"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/square"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="80dp"
+        android:paddingTop="70dp"
+        android:paddingEnd="0dp"
+        android:text="@string/photo"
+        android:textColor="@color/black"
+        android:textSize="75sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/imageView_1"
+        app:layout_constraintTop_toTopOf="@id/imageView_1" />
+
+    <TextView
+        android:id="@+id/textView_certificated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="20dp"
+        android:text="@string/certificated"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_1"
+        app:layout_constraintStart_toStartOf="@id/imageView_1" />
+
+
+    <ImageView
+        android:id="@+id/imageView_2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/post_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView_1" />
+
+    <ImageButton
+        android:id="@+id/imageView_share"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2"
+        app:layout_constraintEnd_toEndOf="@id/imageView_2"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_bookmark"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2"
+        app:layout_constraintEnd_toStartOf="@id/imageView_share"
+        app:srcCompat="@drawable/ic_baseline_bookmark_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_like"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2"
+        app:layout_constraintEnd_toStartOf="@id/imageView_bookmark"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    <ImageView
+        android:id="@+id/imageView_1_1"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/square"
+        app:layout_constraintBottom_toTopOf="@id/imageView_2_1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_layouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="20dp"
+        android:text="@string/layouts"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_1_1"
+        app:layout_constraintStart_toStartOf="@id/imageView_1_1" />
+
+    <ImageView
+        android:id="@+id/imageView_2_1"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="50dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/post_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageView_share_1"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_1"
+        app:layout_constraintEnd_toEndOf="@id/imageView_2_1"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_bookmark_1"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_1"
+        app:layout_constraintEnd_toStartOf="@id/imageView_share_1"
+        app:srcCompat="@drawable/ic_baseline_bookmark_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_like_1"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_1"
+        app:layout_constraintEnd_toStartOf="@id/imageView_bookmark_1"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    <ImageView
+        android:id="@+id/imageView_1_2"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/square"
+        app:layout_constraintBottom_toTopOf="@id/imageView_2_2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="20dp"
+        android:text="@string/layouts"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_1_2"
+        app:layout_constraintStart_toStartOf="@id/imageView_1_2" />
+
+    <ImageView
+        android:id="@+id/imageView_2_2"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:contentDescription="@string/photo"
+        android:src="@drawable/post_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageView_share_2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_2"
+        app:layout_constraintEnd_toEndOf="@id/imageView_2_2"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_bookmark_2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_2"
+        app:layout_constraintEnd_toStartOf="@id/imageView_share_2"
+        app:srcCompat="@drawable/ic_baseline_bookmark_24" />
+
+    <ImageButton
+        android:id="@+id/imageView_like_2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_2_2"
+        app:layout_constraintEnd_toStartOf="@id/imageView_bookmark_2"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
