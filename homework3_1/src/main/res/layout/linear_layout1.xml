@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+    Поняла, что верхнее поле рисовать было не нужно уже как все сделала. Решила не удалять
+    -->
+
+    <TextView
+        android:id="@+id/textViewSpan"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/darkCyan"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="0dp"
+        android:text="@string/poi"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/attractions"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_folder_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/dining"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_local_dining_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/education"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_school_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/family"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_group_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/health"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_favorite_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/office"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_business_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/promotions"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/radio"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_radio_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/recipes"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_book_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawablePadding="20dp"
+        android:gravity="center|start"
+        android:text="@string/sports"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:drawableStartCompat="@drawable/ic_baseline_directions_bike_24" />
+
+</LinearLayout>
