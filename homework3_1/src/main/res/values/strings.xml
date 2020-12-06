@@ -23,7 +23,7 @@
     <string name="password">Password</string>
     <string name="remember">Remember</string>
     <string name="forgotPassword">Forgot password?</string>
-    <string name="justSignIn">Just sign in</string>
+    <string name="justSignIn">* Just sign in</string>
     <string name="android">Android</string>
     <string name="posts">125 Posts</string>
     <string name="followers">20K Followers</string>

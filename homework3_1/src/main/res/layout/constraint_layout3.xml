@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/textViewSpan"
@@ -18,7 +18,8 @@
         android:gravity="start"
         android:text="@string/singIn"
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/email"
@@ -34,7 +35,8 @@
         android:paddingTop="10dp"
         android:paddingEnd="0dp"
         android:paddingBottom="5dp"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewSpan"/>
 
     <EditText
         android:id="@+id/password"
@@ -51,38 +53,36 @@
         android:paddingTop="10dp"
         android:paddingEnd="25dp"
         android:paddingBottom="5dp"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/email"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/checkBoxRemember"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:checked="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/remember"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <CheckBox
-            android:id="@+id/checkBoxRemember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="0dp"
-            android:checked="true"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="@string/remember"/>
-
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="60dp"
-            android:text="@string/forgotPassword"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="60dp"
+        android:text="@string/forgotPassword"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintStart_toEndOf="@id/checkBoxRemember"/>
 
     <Button
         style="@style/DefaultButtonAppearance"
@@ -96,7 +96,8 @@
         android:background="@drawable/sign_in"
         android:text="@string/singIn"
         android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/checkBoxRemember"/>
 
     <TextView
         android:id="@+id/text_JustSingIn"
@@ -106,6 +107,7 @@
         android:text="@string/justSignIn"
         android:paddingBottom="10dp"
         android:textColor="@color/black"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
