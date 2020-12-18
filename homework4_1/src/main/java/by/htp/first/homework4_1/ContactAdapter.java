@@ -8,8 +8,10 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +81,6 @@ class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHold
     public void remove(int position) {
         contactList.remove(position);
         contactListFull.remove(position);
-        notifyDataSetChanged();
         notifyItemRemoved(position);
     }
 
