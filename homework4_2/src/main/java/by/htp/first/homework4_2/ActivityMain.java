@@ -27,7 +27,7 @@ public class ActivityMain extends AppCompatActivity implements CompoundButton.On
 
         customView.setOnCustomViewActionListener(new CustomView.OnCustomViewActionListener() {
             @Override
-            public void onActionDown(float x, float y) {
+            public void onActionDown(float x, float y , int color) {
               //  Toast.makeText(getApplicationContext(), "x= "+x+", y= "+y,Toast.LENGTH_LONG).show();
 
                 Snackbar.make(customView, "x= "+x+", y= "+y, Snackbar.LENGTH_LONG)

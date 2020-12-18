@@ -6,20 +6,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.appcompat.widget.Toolbar;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 public class ActivityMain extends AppCompatActivity {
@@ -31,8 +26,6 @@ public class ActivityMain extends AppCompatActivity {
     private Toolbar toolbar;
     private Contact contact;
     private ContactAdapter contactAdapter;
-    private RecyclerView.ViewHolder holder;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,11 +51,10 @@ public class ActivityMain extends AppCompatActivity {
             @Override
             public void onClick(int position) {
                 Intent intent = new Intent(ActivityMain.this, EditActivity.class);
-
+                contact = contactAdapter.getContactList().get(position);
                 setResult(Activity.RESULT_OK, intent);
                 intent.putExtra("contact", contact);
                 intent.putExtra("position", position);
-                Log.d("hhhh", "position = "+position);
                 setResult(Activity.RESULT_OK, intent);
                 startActivityForResult(intent, EDIT);
             }
@@ -93,33 +85,32 @@ public class ActivityMain extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Contact nContact;
+
         if (resultCode == RESULT_OK && requestCode == ADD) {
             assert data != null;
-            contact = data.getParcelableExtra("add_contact");
-            contactAdapter.add(contact);
+            nContact = data.getParcelableExtra("add_contact");
+            contactAdapter.add(nContact);
             checkContacts(contactAdapter);
-            contactAdapter.notifyDataSetChanged();
+            Log.d("hhhh", "name = "+nContact.getName());
 
         } else if (resultCode == RESULT_OK && requestCode == EDIT) {
             assert data != null;
-            contact = data.getParcelableExtra("editContact");
+            nContact = data.getParcelableExtra("editContact");
             int position = data.getIntExtra("position", 0);
-            Log.d("hhhh", "position = " + position);
 
-            if (contact != null) {
-                contactAdapter.edit(position, contact);
+            if (nContact != null) {
+                contactAdapter.edit(position, nContact);
                 checkContacts(contactAdapter);
             } else {
                 recyclerView.invalidate();
                 checkContacts(contactAdapter);
                 contactAdapter.remove(data.getIntExtra("position", 0));
             }
-
         }
     }
 
@@ -140,7 +131,6 @@ public class ActivityMain extends AppCompatActivity {
             outState.putParcelableArrayList("list", new ArrayList<>());
         }
     }
-
 }
 
 

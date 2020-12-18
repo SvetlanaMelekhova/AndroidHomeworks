@@ -1,6 +1,7 @@
 
 package by.htp.first.homework4_1;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,7 @@ class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHold
             @Override
             public void onClick(View v) {
                 if (listener != null) {
+                    notifyDataSetChanged();
                     listener.onClick(position);
                 }
             }
