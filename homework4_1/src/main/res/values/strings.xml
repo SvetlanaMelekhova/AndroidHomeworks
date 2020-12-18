@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Homework4_1</string>
+    <string name="add_contact">Add contact</string>
+
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="edit_contact">Edit contact</string>
+    <string name="remove">Remove</string>
+    <string name="search">search</string>
+</resources>
