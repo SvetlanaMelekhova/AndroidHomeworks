@@ -187,11 +187,6 @@ public class CustomView extends View {
                     }
 
                 }
-                /*for (i in 0..3) {
-                    if (regions[i].contains(x.toInt(), y.toInt())) {
-                        paints[i].color = colors.random()
-                        coordsListener?.onClickCoords(this, x.toInt(), y.toInt(), paints[i].color)
-                        invalidate()*/
 
 
                 //onCustomViewActionListener.onActionDown(x, y);

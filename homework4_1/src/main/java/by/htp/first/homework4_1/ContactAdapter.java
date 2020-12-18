@@ -1,7 +1,6 @@
 
 package by.htp.first.homework4_1;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
