@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarRecyclerCar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/primary_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_list"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageViewRecyclerCar"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:src="@drawable/square"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/toolBarRecyclerCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/car_list" />
+
+    <ImageView
+        android:id="@+id/imageViewCarRecyclerCar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="drawable/square"
+        android:background="@color/gray"
+        app:layout_constraintTop_toTopOf="@+id/imageViewRecyclerCar"
+        app:layout_constraintStart_toStartOf="@id/imageViewRecyclerCar"
+        app:layout_constraintEnd_toEndOf="@id/imageViewRecyclerCar"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButtonEditRecyclerCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintTop_toTopOf="@id/imageViewCarRecyclerCar"
+        app:layout_constraintEnd_toEndOf="@id/imageViewCarRecyclerCar"/>
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintTop_toTopOf="@id/imageViewCarRecyclerCar"
+        app:layout_constraintBottom_toBottomOf="@id/imageViewCarRecyclerCar"
+        app:layout_constraintStart_toStartOf="@id/imageViewCarRecyclerCar"
+        app:layout_constraintEnd_toEndOf="@id/imageViewCarRecyclerCar"
+        android:foregroundGravity="center"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
