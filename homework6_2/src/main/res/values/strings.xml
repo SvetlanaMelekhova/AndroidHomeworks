@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gallery</string>
+    <string name="photo">photo</string>
+    <string name="button_back">button back</string>
+    <string name="permission_granted">Read external storage permission granted</string>
+    <string name="permission_denied">Read external storage permission denied</string>
+
+</resources>
