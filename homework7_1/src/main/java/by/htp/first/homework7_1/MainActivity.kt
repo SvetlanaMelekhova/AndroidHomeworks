@@ -80,14 +80,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkDataBase() {
-        val carList = databaseRepository.getCarsList()
-        if (carList.isNotEmpty()) {
-            carAdapter.cars = carList as ArrayList<Car>
-            carAdapter.carsCopy = carList as ArrayList<Car>
-            carAdapter.sortByCarBrand()
-            logoTextView.setVisibileOrNot(carAdapter.cars.isNotEmpty())
-        }
-    }
+        databaseRepository.getCarsList()
+            .subscribe{ list ->
+                carAdapter.cars = list as ArrayList<Car>
+                carAdapter.carsCopy = list as ArrayList<Car>
+                carAdapter.sortByCarBrand()
+                logoTextView.setVisibileOrNot(carAdapter.cars.isNotEmpty())
+                }
+            }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

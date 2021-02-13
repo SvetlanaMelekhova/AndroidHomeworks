@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.htp.first.homework7_1.adapter.WorkAdapter
 import by.htp.first.homework7_1.database.DatabaseRepository
+import by.htp.first.homework7_1.entity.Car
 import by.htp.first.homework7_1.entity.Work
 import by.htp.first.homework7_1.function.setVisibileOrNot
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -74,9 +75,9 @@ class WorkActivity : AppCompatActivity() {
     }
 
     private fun checkDataBase() {
-        val workList = databaseRepository.getParentWorks(parentCar)
-        if (workList.isNotEmpty()) {
-            localAdapter.works = workList as ArrayList<Work>
+        databaseRepository.getParentWorks(parentCar)
+            .subscribe{ list ->
+            localAdapter.works = list as ArrayList<Work>
             logoTextView.setVisibileOrNot(localAdapter.works.isNotEmpty())
             localAdapter.notifyDataSetChanged()
         }

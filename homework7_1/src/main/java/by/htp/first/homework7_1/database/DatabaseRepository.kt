@@ -3,6 +3,7 @@ package by.htp.first.homework7_1.database
 import android.content.Context
 import by.htp.first.homework7_1.entity.Car
 import by.htp.first.homework7_1.entity.Work
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -17,13 +18,11 @@ class DatabaseRepository(context: Context) {
                 .subscribe()
     }
 
-    fun getCarsList(): List<Car> {
-        return Single.create<List<Car>> {
-            val list = database.getCarDatabaseDAO().getCarsList()
-            it.onSuccess(list)
-        }.subscribeOn(Schedulers.io())
-                .blockingGet()
-    }
+    fun getCarsList(): Single<List<Car>> = Single.create<List<Car>>{
+        val list = database.getCarDatabaseDAO().getCarsList()
+        it.onSuccess(list)
+    }.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
 
     fun getCar(carId: Long): Car {
         return Single.create<Car> {
@@ -40,13 +39,12 @@ class DatabaseRepository(context: Context) {
                 .subscribe()
     }
 
-    fun getParentWorks(parentCar: String?): List<Work> {
-        return Single.create<List<Work>> {
+    fun getParentWorks(parentCar: String?) = Single.create<List<Work>> {
             val list = database.getWorkDatabaseDAO().getParentWorks(parentCar)
             it.onSuccess(list)
         }.subscribeOn(Schedulers.io())
-                .blockingGet()
-    }
+        .observeOn(AndroidSchedulers.mainThread())
+
 
     fun getWork(workId: Long): Work {
         return Single.create<Work> {
