@@ -12,6 +12,9 @@ import androidx.appcompat.widget.Toolbar
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.entity.Work
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private const val DB_ID_COLUMN_NAME = "carId"
@@ -34,6 +37,7 @@ class EditWorkActivity : AppCompatActivity() {
     private lateinit var workDescriptionEditText: EditText
     private lateinit var workCostEditText: EditText
     private lateinit var timeTextView: TextView
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +59,10 @@ class EditWorkActivity : AppCompatActivity() {
         pendingImageView = findViewById(R.id.ivPendingEditWorkCarActivity)
         inProgressImageView = findViewById(R.id.ivInProgressEditWorkCarActivity)
         completedImageView = findViewById(R.id.ivCompletedEditWorkCarActivity)
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
-        findViewById<TextView>(R.id.titleInToolbar).text = workObject?.workName ?: getString(R.string.edit)
+        findViewById<TextView>(R.id.titleInToolbar).text =
+            workObject?.workName ?: getString(R.string.edit)
 
         fillPage()
 
@@ -72,11 +78,13 @@ class EditWorkActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
             if (color == null) {
-                Snackbar.make(addButton, getString(R.string.selectProgress), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(addButton, getString(R.string.selectProgress), Snackbar.LENGTH_LONG)
+                    .show()
             } else if (workNameEditText.text.isNotEmpty() && workDescriptionEditText.text.isNotEmpty() && workCostEditText.text.isNotEmpty()) {
                 saveDataAndCloseActivity(createObject())
             } else {
-                Snackbar.make(addButton, getString(R.string.fillAllFields), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(addButton, getString(R.string.fillAllFields), Snackbar.LENGTH_LONG)
+                    .show()
             }
         }
     }
@@ -97,7 +105,7 @@ class EditWorkActivity : AppCompatActivity() {
 
     private fun getIntentData(intent: Intent) {
         workId = intent.getLongExtra(DB_ID_COLUMN_NAME, 0)
-        databaseRepository.mainScope().launch {
+        activityScope.launch {
             workObject = databaseRepository.getWork(workId)
             progress = workObject?.progress ?: getString(R.string.pending)
             color = workObject?.color
@@ -129,12 +137,14 @@ class EditWorkActivity : AppCompatActivity() {
     }
 
     private fun createObject() =
-        Work(workNameEditText.text.toString(),
+        Work(
+            workNameEditText.text.toString(),
             workDescriptionEditText.text.toString(),
             timeTextView.text.toString(),
             progress!!,
             workCostEditText.text.toString(),
-            color!!)
+            color!!
+        )
             .also {
                 it.parentCar = workObject?.parentCar
                 it.id = workObject?.id
@@ -142,8 +152,10 @@ class EditWorkActivity : AppCompatActivity() {
 
     private fun saveDataAndCloseActivity(work: Work) {
 
-        databaseRepository.updateWork(work)
-        finish()
+        activityScope.launch {
+            databaseRepository.updateWork(work)
+            finish()
+        }
     }
 
     private fun showRemoveDialog() {
@@ -151,7 +163,9 @@ class EditWorkActivity : AppCompatActivity() {
             setTitle(getString(R.string.remove_work))
             setMessage(getString(R.string.deleteWorkMessage))
             setPositiveButton(getString(R.string.yesButton)) { _, _ ->
-                workObject?.let { databaseRepository.deleteWork(it) }
+                workObject?.let {
+                    activityScope.launch { databaseRepository.deleteWork(it) }
+                }
                 setResult(RESULT_OK, Intent())
                 finish()
             }

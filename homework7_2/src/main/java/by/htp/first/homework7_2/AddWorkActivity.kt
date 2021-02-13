@@ -10,6 +10,10 @@ import androidx.appcompat.widget.Toolbar
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.entity.Work
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.Date
@@ -30,6 +34,7 @@ class AddWorkActivity : AppCompatActivity() {
     private lateinit var inProgressImageView: ImageView
     private lateinit var completedImageView: ImageView
     private val parentCarName = "parentCarName"
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +53,7 @@ class AddWorkActivity : AppCompatActivity() {
         pendingImageView = findViewById(R.id.ivPendingAddWorkCarActivity)
         inProgressImageView = findViewById(R.id.ivInProgressAddWorkCarActivity)
         completedImageView = findViewById(R.id.ivCompletedAddWorkCarActivity)
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
         timeTextView.text = getCurrentData()
 
@@ -71,8 +77,10 @@ class AddWorkActivity : AppCompatActivity() {
             } else if (workNameEditText.text.isNotEmpty() && workDescriptionEditText.text.isNotEmpty() && workCostEditText.text.isNotEmpty()) {
                 createObject().apply {
                     parentCar = intent.getStringExtra(parentCarName)
-                    databaseRepository.addWorkToDatabase(this)
-                    finish()
+                    activityScope.launch {
+                        databaseRepository.addWorkToDatabase(this@apply)
+                        finish()
+                    }
                 }
             } else {
                 Snackbar.make(addButton, getString(R.string.fillAllFields), Snackbar.LENGTH_LONG).show()

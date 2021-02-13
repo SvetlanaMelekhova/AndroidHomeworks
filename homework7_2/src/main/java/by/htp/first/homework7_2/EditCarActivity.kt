@@ -18,6 +18,9 @@ import androidx.core.net.toUri
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.entity.Car
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.io.File
 import java.util.UUID
@@ -41,6 +44,7 @@ class EditCarActivity : AppCompatActivity() {
     private lateinit var photoCamera: ImageView
     private lateinit var noPhotoTextView: TextView
     private val positionCarInDatabase = "carId"
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +63,7 @@ class EditCarActivity : AppCompatActivity() {
         imageBackground = findViewById(R.id.backgroundActivityEditCar)
         noPhotoTextView = findViewById(R.id.tvNoPhotoActivityEditCar)
         photoCamera.setColorFilter(getColor(R.color.white))
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
         getIntentExtras(intent)
 
@@ -100,7 +105,9 @@ class EditCarActivity : AppCompatActivity() {
     private fun addListener() {
         if (isAllTextAvailable()) {
             val car = fillCarObject()
-            databaseRepository.updateCar(car)
+            activityScope.launch {
+                databaseRepository.updateCar(car)
+            }
             Intent().apply {
                 putExtra(positionCarInDatabase, carId)
                 setResult(RESULT_OK, this)
@@ -120,10 +127,11 @@ class EditCarActivity : AppCompatActivity() {
 
     private fun getIntentExtras(intent: Intent) {
         carId = intent.getLongExtra(positionCarInDatabase, 0)
-        databaseRepository.mainScope().launch {
+        activityScope.launch {
             car = databaseRepository.getCar(carId)
             fillPage()
         }
+
     }
 
     private fun fillPage() {

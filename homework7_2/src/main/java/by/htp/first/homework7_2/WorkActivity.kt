@@ -13,6 +13,9 @@ import by.htp.first.homework7_2.entity.Work
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.function.setVisibileOrNot
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class WorkActivity : AppCompatActivity() {
@@ -30,6 +33,7 @@ class WorkActivity : AppCompatActivity() {
     private lateinit var backButton: ImageView
     private val positionCarInDatabase = "carId"
     private val parentCarName = "parentCarName"
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,7 @@ class WorkActivity : AppCompatActivity() {
         addWorkActionButton.setColorFilter(getColor(R.color.white))
         backButton = findViewById(R.id.backButton)
         logoTextView = findViewById(R.id.worksIsEmptyTextView)
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
         getIntentData(intent, carNameInToolbar)
 
@@ -75,7 +80,7 @@ class WorkActivity : AppCompatActivity() {
     }
 
     private fun checkDataBase() {
-        databaseRepository.mainScope().launch {
+        activityScope.launch {
             val workList = databaseRepository.getParentWorks(parentCar)
             if (workList.isNotEmpty()) {
                 localAdapter.works = workList as ArrayList<Work>

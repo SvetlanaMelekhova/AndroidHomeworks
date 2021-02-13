@@ -17,6 +17,10 @@ import androidx.core.net.toUri
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.entity.Car
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.io.File
 import java.util.UUID
 
@@ -32,6 +36,7 @@ class AddCarActivity : AppCompatActivity() {
     private lateinit var photoCamera: ImageButton
     private lateinit var databaseRepository: DatabaseRepository
     private var photoFile: File? = null
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,16 +55,18 @@ class AddCarActivity : AppCompatActivity() {
         buttonAdd = findViewById(R.id.addButtonActivityAddCar)
         photoCamera = findViewById(R.id.photoActionButtonActivityAddCar)
         photoCamera.setColorFilter(getColor(R.color.white))
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
         buttonBack.setOnClickListener { finish() }
 
         buttonAdd.setOnClickListener {
             if (carOwnerName.text.isNotEmpty() && carModelName.text.isNotEmpty() && carPlateNumber.text.isNotEmpty()) {
                 val car = createCarObject()
-                databaseRepository.addCar(car)
-                val intent = Intent().putExtra("objectId", car.id)
-                setResult(RESULT_OK, intent)
-                finish()
+                activityScope.launch {
+                    databaseRepository.addCar(car)
+                    val intent = Intent().putExtra("objectId", car.id)
+                    setResult(RESULT_OK, intent)
+                    finish() }
             } else {
                 Snackbar.make(buttonAdd, getString(R.string.fill_out_form), Snackbar.LENGTH_LONG).show()
             }

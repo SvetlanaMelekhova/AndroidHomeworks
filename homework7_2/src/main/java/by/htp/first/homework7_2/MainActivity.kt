@@ -15,6 +15,9 @@ import by.htp.first.homework7_2.entity.Car
 import by.htp.first.homework7_2.database.DatabaseRepository
 import by.htp.first.homework7_2.function.setVisibileOrNot
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addActionButton: FloatingActionButton
     private lateinit var toolbar: Toolbar
     private lateinit var searchView: SearchView
+    private lateinit var activityScope: CoroutineScope
     private val positionCarInDatabase = "carId"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         addActionButton = findViewById(R.id.addNewCar)
         logoTextView = findViewById(R.id.listIsEmptyTextView)
         addActionButton.setColorFilter(getColor(R.color.white))
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
 
         databaseRepository = DatabaseRepository(applicationContext)
 
@@ -81,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkDataBase() {
-        databaseRepository.mainScope().launch {
+        activityScope.launch {
             val carList = databaseRepository.getCarsList()
             if (carList.isNotEmpty()) {
                 carAdapter.apply {

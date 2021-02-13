@@ -7,18 +7,13 @@ import kotlinx.coroutines.*
 
 class DatabaseRepository(context: Context) {
 
-    private val mainScope = CoroutineScope(Dispatchers.Main + Job())
+
     private val database = CarDatabase.init(context)
     private val threadIO = Dispatchers.IO
 
-    fun mainScope() = mainScope
-
-
-    fun addCar(car: Car) {
-        mainScope.launch {
-            withContext(threadIO) {
-                database.getCarDatabaseDAO().addCarToDatabase(car)
-            }
+    suspend fun addCar(car: Car) {
+        withContext(threadIO) {
+            database.getCarDatabaseDAO().addCarToDatabase(car)
         }
     }
 
@@ -34,11 +29,9 @@ class DatabaseRepository(context: Context) {
         }
     }
 
-    fun updateCar(carData: Car) {
-        mainScope.launch {
-            withContext(threadIO) {
-                database.getCarDatabaseDAO().update(carData)
-            }
+    suspend fun updateCar(carData: Car) {
+        withContext(threadIO) {
+            database.getCarDatabaseDAO().update(carData)
         }
     }
 
@@ -54,27 +47,21 @@ class DatabaseRepository(context: Context) {
         }
     }
 
-    fun updateWork(workData: Work) {
-        mainScope.launch {
-            withContext(threadIO) {
-                database.getWorkDatabaseDAO().update(workData)
-            }
+    suspend fun updateWork(workData: Work) {
+        withContext(threadIO) {
+            database.getWorkDatabaseDAO().update(workData)
         }
     }
 
-    fun deleteWork(workData: Work) {
-        mainScope.launch {
-            withContext(threadIO) {
-                database.getWorkDatabaseDAO().delete(workData)
-            }
+    suspend fun deleteWork(workData: Work) {
+        withContext(threadIO) {
+            database.getWorkDatabaseDAO().delete(workData)
         }
     }
 
-    fun addWorkToDatabase(workData: Work) {
-        mainScope.launch {
-            withContext(threadIO) {
-                database.getWorkDatabaseDAO().addWorkToDatabase(workData)
-            }
+    suspend fun addWorkToDatabase(workData: Work) {
+        withContext(threadIO) {
+            database.getWorkDatabaseDAO().addWorkToDatabase(workData)
         }
     }
 }
