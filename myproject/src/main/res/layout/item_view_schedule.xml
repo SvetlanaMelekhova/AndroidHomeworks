@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    app:cardCornerRadius="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/rootShape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/childShape"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/shape1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@id/childShape"
+            app:layout_constraintEnd_toEndOf="@id/childShape"
+            app:layout_constraintStart_toStartOf="@id/childShape"
+            app:layout_constraintTop_toTopOf="@id/childShape"
+            tools:text="Tomorrow 06/02/2021" />
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/textColorSecondary"
+            android:gravity="center"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@id/rootShape"
+            app:layout_constraintTop_toTopOf="@id/rootShape"
+            tools:text="16:00" />
+
+        <TextView
+            android:id="@+id/textViewPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@id/rootShape"
+            app:layout_constraintStart_toEndOf="@id/textViewTime"
+            app:layout_constraintTop_toTopOf="@id/rootShape"
+            tools:text="Go to the swimming pool." />
+
+        <ImageView
+            android:id="@+id/imageViewPhoto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/textColorSecondary"
+            android:contentDescription="@string/photo"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/rootShape"
+            app:layout_constraintEnd_toEndOf="@id/rootShape"
+            app:layout_constraintTop_toTopOf="@id/rootShape" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+
