@@ -42,6 +42,12 @@ class PersonAdapter (): RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
 
     override fun getItemCount() = personInfoList.size
 
+    fun updateList(list: List<PersonData>) {
+        personInfoList = ArrayList(list)
+        personInfoListForFilter = ArrayList(list)
+        notifyDataSetChanged()
+    }
+
     class PersonViewHolder(
         private val itemViewPersonBinding: ItemViewPersonBinding,
         private val listenerPersonData: (personData: PersonData) -> Unit,

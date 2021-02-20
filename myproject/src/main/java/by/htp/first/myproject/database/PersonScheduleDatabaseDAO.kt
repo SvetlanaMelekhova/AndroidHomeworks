@@ -21,8 +21,11 @@ interface PersonScheduleDatabaseDAO {
     @Query("SELECT * FROM person_schedule WHERE id = :id")
     fun getPersonSchedule(id: Long): PersonScheduleData
 
-    @Query("SELECT * FROM person_schedule WHERE personId LIKE :personId")
-    fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>
+   /* @Query("SELECT * FROM person_schedule WHERE personId LIKE :personId")
+    fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>*/
+
+    @Query("SELECT * FROM person_schedule WHERE personName LIKE :personName")
+    fun getAllPersonSchedule(personName: String): List<PersonScheduleData>
 
     @Query("SELECT * FROM person_schedule")
     fun getPersonScheduleList(): List<PersonScheduleData>

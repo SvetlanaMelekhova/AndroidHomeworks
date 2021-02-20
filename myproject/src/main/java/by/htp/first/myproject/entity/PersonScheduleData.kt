@@ -5,13 +5,16 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 @Entity(tableName = "person_schedule")
 data class PersonScheduleData(
-    @ColumnInfo val date: String,
-    @ColumnInfo val time: String,
+   @ColumnInfo val date: String,
+   // @ColumnInfo var date: Date = Date(),
+    @ColumnInfo var time: String,
     @ColumnInfo val plan: String,
-    @ColumnInfo val personId: Long = -1
+    //@ColumnInfo val personId: Long = -1
+    @ColumnInfo val personName: String
 ) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
@@ -21,18 +24,25 @@ data class PersonScheduleData(
 
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
+        //parcel.readDate(),
+       // parcel.readSerializable() as Date,
         parcel.readString().toString(),
         parcel.readString().toString(),
-        parcel.readLong()
+       // parcel.readLong()
+    parcel.readString().toString()
     ) {
         id = parcel.readLong()
+        //date = parcel.read
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(date)
+        //parcel.writeDate(date)
+        //parcel.writeSerializable(date)
         parcel.writeString(time)
         parcel.writeString(plan)
-        parcel.writeLong(personId)
+        //parcel.writeLong(personId)
+        parcel.writeString(personName)
         parcel.writeLong(id)
     }
 
@@ -49,4 +59,13 @@ data class PersonScheduleData(
             return arrayOfNulls(size)
         }
     }
+
+    /*fun Parcel.writeDate(date: Date?) {
+        writeLong(date?.time ?: -1)
+    }
+
+    fun Parcel.readDate(): Date? {
+        val long = readLong()
+        return if (long != -1L) Date(long) else null
+    }*/
 }

@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "person_data")
 data class PersonData(
     @ColumnInfo val pathToPicture: String,
-    @ColumnInfo val personName: String,
-    @ColumnInfo val personImage: String?
+    @ColumnInfo val personName: String
+    //@ColumnInfo val personImage: String?
 ) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
@@ -19,7 +19,7 @@ data class PersonData(
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
         parcel.readString().toString(),
-        parcel.readString().toString()
+        //parcel.readString().toString()
     ) {
         id = parcel.readLong()
     }
@@ -27,7 +27,7 @@ data class PersonData(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(pathToPicture)
         parcel.writeString(personName)
-        parcel.writeString(personImage)
+        //parcel.writeString(personImage)
         parcel.writeLong(id)
     }
 

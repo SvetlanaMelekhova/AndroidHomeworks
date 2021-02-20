@@ -8,4 +8,8 @@
     <string name="family_list_is_empty">Family list is empty</string>
     <string name="add_person">Add person</string>
     <string name="no_photo">No photo</string>
+    <string name="edit_person">Edit Person</string>
+    <string name="add_plan">Add Plan</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
 </resources>

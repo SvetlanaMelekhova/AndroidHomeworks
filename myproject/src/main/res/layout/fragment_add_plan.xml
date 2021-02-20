@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/textColorSecondary">
 
     <androidx.appcompat.widget.Toolbar
@@ -22,87 +21,94 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_person"
                 android:layout_marginStart="16dp"
-                android:textSize="24sp"
+                android:text="@string/add_plan"
                 android:textColor="@color/white"
+                android:textSize="24sp"
                 android:textStyle="italic"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_done_24"
                 android:backgroundTint="@color/textColorPrimary"
+                android:src="@drawable/ic_baseline_done_24"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/imageViewPhoto"
-        android:layout_width="220dp"
-        android:layout_height="340dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/shape3"
-        app:layout_constraintTop_toBottomOf="@id/mainToolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonDate"
+        style="@style/DefaultButtonAppearance"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no_photo"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="@id/imageViewPhoto"
-        app:layout_constraintBottom_toBottomOf="@id/imageViewPhoto"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/date"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/mainToolbar" />
 
-    <ImageButton
-        android:id="@+id/buttonPhotoCamera"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonTime"
+        style="@style/DefaultButtonAppearance"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_baseline_add_a_photo_24"
-        app:layout_constraintBottom_toBottomOf="@id/imageViewPhoto"
-        app:layout_constraintEnd_toEndOf="@id/imageViewPhoto" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/time"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonDate" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout1"
-        android:layout_width="220dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:boxStrokeColor="@color/textColorPrimary"
-        app:boxStrokeWidthFocused="3dp"
+        app:helperTextTextColor="@color/textColorPrimary"
+        android:textColorHint="@color/textColorPrimary"
+
         app:boxStrokeWidth="5dp"
+        app:boxStrokeWidthFocused="3dp"
         app:hintTextColor="@color/textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewPhoto">
+        app:layout_constraintTop_toBottomOf="@id/buttonTime">
 
         <EditText
-            android:id="@+id/etPersonName"
+            android:id="@+id/etPlan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/textColorSecondary"
-            android:hint="Name"
-            android:textCursorDrawable="@drawable/cursor_color"
             android:backgroundTintMode="screen"
+            android:textStyle="italic"
+            android:hint="Schedule Event"
+            android:gravity="center"
             android:inputType="textPersonName"
+            android:textColorHint="@color/colorPrimary"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

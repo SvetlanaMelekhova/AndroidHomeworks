@@ -8,11 +8,9 @@ import kotlinx.coroutines.withContext
 
 class DatabaseRepository(context: Context) {
 
-    //private val mainScope = CoroutineScope(Dispatchers.Main + Job())
     private val database = PersonDatabase.getDatabase(context)
     private val threadIO = Dispatchers.IO
 
-    //fun mainScope() = mainScope
     suspend fun addPerson(personData: PersonData) {
         withContext(threadIO) {
             database.getPersonDatabaseDAO().addPerson(personData)
@@ -61,9 +59,15 @@ class DatabaseRepository(context: Context) {
         }
     }
 
-    suspend fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>{
+    /*suspend fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>{
         return withContext(threadIO) {
             database.getPersonScheduleDatabaseDAO().getAllPersonSchedule(personId)
+        }
+    }*/
+
+    suspend fun getAllPersonSchedule(personName: String): List<PersonScheduleData>{
+        return withContext(threadIO) {
+            database.getPersonScheduleDatabaseDAO().getAllPersonSchedule(personName)
         }
     }
 

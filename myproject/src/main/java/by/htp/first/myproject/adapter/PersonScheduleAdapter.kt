@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import by.htp.first.myproject.R
 import by.htp.first.myproject.databinding.ItemViewScheduleBinding
+import by.htp.first.myproject.entity.PersonData
 import by.htp.first.myproject.entity.PersonScheduleData
 import com.bumptech.glide.Glide
 
@@ -39,6 +40,13 @@ class PersonScheduleAdapter () : RecyclerView.Adapter<PersonScheduleAdapter.Pers
 
     override fun getItemCount() = allSchedule.size
 
+    fun updateLists(list: List<PersonScheduleData>) {
+        allSchedule = ArrayList(list as ArrayList<PersonScheduleData>)
+        scheduleListForFilter = ArrayList(list)
+        scheduleListCopyForOrder = ArrayList(list)
+        notifyDataSetChanged()
+    }
+
 
     class PersonScheduleViewHolder(
         private val itemViewScheduleBinding: ItemViewScheduleBinding,
@@ -47,12 +55,9 @@ class PersonScheduleAdapter () : RecyclerView.Adapter<PersonScheduleAdapter.Pers
         fun bind(personScheduleData: PersonScheduleData) {
             with(itemViewScheduleBinding) {
 
-                textViewDate.text = personScheduleData.time
+                textViewTime.text = personScheduleData.time
                 textViewPlan.text = personScheduleData.plan
                 textViewDate.text = personScheduleData.date
-
-
-
 
                root.setOnClickListener { listener.invoke(personScheduleData) }
 

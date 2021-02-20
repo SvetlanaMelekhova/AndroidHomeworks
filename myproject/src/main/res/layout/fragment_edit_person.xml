@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:background="@color/textColorSecondary">
 
     <androidx.appcompat.widget.Toolbar
@@ -22,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_person"
+                android:text="@string/edit_person"
                 android:layout_marginStart="16dp"
                 android:textSize="24sp"
                 android:textColor="@color/white"

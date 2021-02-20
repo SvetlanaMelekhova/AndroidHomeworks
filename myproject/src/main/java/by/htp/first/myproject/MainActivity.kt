@@ -7,7 +7,7 @@ import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import by.htp.first.myproject.database.DatabaseRepository
 import by.htp.first.myproject.fragment.FragmentLoader
-import by.htp.first.myproject.fragment.PersonListFragment
+import by.htp.first.myproject.fragment.FragmentPersonList
 //import by.htp.first.myproject.database.DatabaseRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -33,17 +33,13 @@ class MainActivity : AppCompatActivity(), FragmentLoader {
 
     private fun showFragment() {
         supportFragmentManager.commit {
-            add<PersonListFragment>(R.id.fragmentContainer)
+            add<FragmentPersonList>(R.id.fragmentContainer)
         }
     }
 
 
 
-    override fun loadFragment(
-        fragmentClass: Class<out Fragment>,
-        transitionCode: Int,
-        bundle: Bundle
-    ) {
+    override fun loadFragment(fragmentClass: Class<out Fragment>, transitionCode: Int, bundle: Bundle) {
         supportFragmentManager.commit {
             setTransition(transitionCode)
             replace(R.id.fragmentContainer, fragmentClass, bundle)
