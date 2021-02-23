@@ -77,9 +77,9 @@ class DatabaseRepository() {
         }
     }*/
 
-    suspend fun getAllPersonSchedule(personName: String): List<PersonScheduleData>{
+    suspend fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>{
         return withContext(threadIO) {
-            database.getPersonScheduleDatabaseDAO().getAllPersonSchedule(personName)
+            database.getPersonScheduleDatabaseDAO().getAllPersonSchedule(personId)
         }
     }
 

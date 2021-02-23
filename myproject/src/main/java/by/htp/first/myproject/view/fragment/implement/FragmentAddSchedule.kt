@@ -24,7 +24,7 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
     private val presenter: FragmentAddSchedulePresenter = FragmentAddSchedulePresenterImpl()
     private lateinit var loader: FragmentLoader
     private lateinit var binding: FragmentAddPlanBinding
-    private lateinit var personName: String
+    private var personId: Long = 0
     private var personData: PersonData = PersonData("", "")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -103,7 +103,7 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
         val data = binding.buttonDate.text.toString()
 
         if (plan.isNotEmpty() && time.isNotEmpty() && data.isNotEmpty() ) {
-        presenter.addData(PersonScheduleData(data, time, plan, personName))
+        presenter.addData(PersonScheduleData(data, time, plan, personId))
         backToMainFragment()
         } else {
             Snackbar.make(binding.etPlan, "Fields can't be empty", Snackbar.LENGTH_LONG)
@@ -114,12 +114,12 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
     private fun backToMainFragment() {
         loader.loadFragment(
             FragmentScheduleListImpl::class.java, FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
-            bundleOf("personName" to personName, "personData" to personData)
+            bundleOf("personId" to personId, "personData" to personData)
         )
     }
 
     private fun loadDataFromBundle(bundle: Bundle) {
-        personName = bundle.getString("personName", "")
+        personId = bundle.getLong("personId", 0)
         personData = bundle.getParcelable<PersonData>("personData")!!
     }
 }

@@ -12,8 +12,8 @@ data class PersonScheduleData(
    // @ColumnInfo var date: Date = Date(),
     @ColumnInfo var time: String,
     @ColumnInfo val plan: String,
-    //@ColumnInfo val personId: Long = -1
-    @ColumnInfo val personName: String
+   @ColumnInfo val personId: Long = -1
+   // @ColumnInfo val personName: String
 ) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
@@ -27,8 +27,8 @@ data class PersonScheduleData(
        // parcel.readSerializable() as Date,
         parcel.readString().toString(),
         parcel.readString().toString(),
-       // parcel.readLong()
-    parcel.readString().toString()
+        parcel.readLong()
+   // parcel.readString().toString()
     ) {
         id = parcel.readLong()
         //date = parcel.read
@@ -40,8 +40,8 @@ data class PersonScheduleData(
         //parcel.writeSerializable(date)
         parcel.writeString(time)
         parcel.writeString(plan)
-        //parcel.writeLong(personId)
-        parcel.writeString(personName)
+        parcel.writeLong(personId)
+        //parcel.writeString(personName)
         parcel.writeLong(id)
     }
 

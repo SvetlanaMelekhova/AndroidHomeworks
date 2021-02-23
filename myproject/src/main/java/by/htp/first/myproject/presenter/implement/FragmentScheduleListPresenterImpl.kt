@@ -16,9 +16,9 @@ class FragmentScheduleListPresenterImpl(
     private val repository: DatabaseRepository = DatabaseRepository()
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.Main + Job())
 
-    override fun fetchData(personName: String) {
+    override fun fetchData(personId: Long) {
         scope.launch {
-            val list = repository.getAllPersonSchedule(personName)
+            val list = repository.getAllPersonSchedule(personId)
             view?.showData(list)
         }
     }

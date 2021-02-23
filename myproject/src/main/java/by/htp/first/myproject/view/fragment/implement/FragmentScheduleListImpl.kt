@@ -26,8 +26,8 @@ class FragmentScheduleListImpl : Fragment(R.layout.fragment_schedule_list), Frag
     private lateinit var loader: FragmentLoader
     private lateinit var personScheduleAdapter: PersonScheduleAdapter
     private lateinit var fab: FloatingActionButton
-   // private var personId: Long = 0
-    private var personName: String = ""
+   private var personId: Long = 0
+   // private var personName: String = ""
     private lateinit var personData: PersonData
 
 
@@ -52,7 +52,7 @@ class FragmentScheduleListImpl : Fragment(R.layout.fragment_schedule_list), Frag
             personScheduleAdapter.onScheduleInfoItemClickListener = {
 
             }
-            presenter.fetchData(personName)
+            presenter.fetchData(personId)
         }
 
 
@@ -67,7 +67,7 @@ class FragmentScheduleListImpl : Fragment(R.layout.fragment_schedule_list), Frag
             fab.setOnClickListener{
             loader.loadFragment(
                 FragmentAddSchedule::class.java, FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
-            bundleOf("personName" to personName, "personData" to personData))
+            bundleOf("personId" to personId, "personData" to personData))
 
                 /*loader.loadFragment(FragmentAddWork::class.java,
                     FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
@@ -81,7 +81,7 @@ class FragmentScheduleListImpl : Fragment(R.layout.fragment_schedule_list), Frag
     private fun getData(bundle: Bundle) {
 
             personData = bundle.getParcelable("personData") ?: PersonData("", "")
-            personName = personData.personName
+            personId = personData.id
 
     }
 
