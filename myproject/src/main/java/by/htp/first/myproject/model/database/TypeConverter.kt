@@ -1,7 +1,4 @@
-package by.htp.first.myproject.database
-
-import androidx.room.TypeConverter
-import java.util.Date
+package by.htp.first.myproject.presenter.database
 
 
 /*

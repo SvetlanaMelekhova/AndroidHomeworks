@@ -1,4 +1,4 @@
-package by.htp.first.myproject.fragment
+package by.htp.first.myproject.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

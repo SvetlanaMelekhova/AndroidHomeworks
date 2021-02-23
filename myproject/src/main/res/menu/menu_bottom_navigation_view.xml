@@ -5,17 +5,13 @@
     <item
         android:title="@string/title_today"
         android:id="@+id/item1"
-        android:icon="@drawable/ic_baseline_schedule_24"/>
+        android:icon="@drawable/ic_baseline_schedule_24"
+        />
 
     <item
-        android:title="@string/title_schedule"
+        android:title="@string/calendar"
         android:id="@+id/item2"
-
-        android:icon="@drawable/ic_baseline_schedule_24"/>
-
-    <item
-        android:title="@string/title_family"
-        android:id="@+id/item3"
-        android:icon="@drawable/ic_baseline_family_restroom_24"/>
+        android:icon="@drawable/ic_baseline_today_24"
+        />
 
 </menu>

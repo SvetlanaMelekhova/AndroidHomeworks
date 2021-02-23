@@ -1,14 +1,26 @@
-package by.htp.first.myproject.database
+package by.htp.first.myproject.model.database
 
 import android.content.Context
-import by.htp.first.myproject.entity.PersonData
-import by.htp.first.myproject.entity.PersonScheduleData
+import by.htp.first.myproject.model.entity.PersonData
+import by.htp.first.myproject.model.entity.PersonScheduleData
+import by.htp.first.myproject.presenter.database.PersonDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DatabaseRepository(context: Context) {
+class DatabaseRepository() {
 
-    private val database = PersonDatabase.getDatabase(context)
+    companion object{
+        private lateinit var database: PersonDatabase
+        fun initDatabase(context: Context){
+            database = PersonDatabase.getDatabase(context)
+        }
+    }
+
+    /*withContext(scope.coroutineContext + Dispatchers.IO) {
+        database.getUserInfoDao().addUserInfo(info)
+    }*/
+
+    //private val database = PersonDatabase.getDatabase(context)
     private val threadIO = Dispatchers.IO
 
     suspend fun addPerson(personData: PersonData) {

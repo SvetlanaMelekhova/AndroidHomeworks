@@ -12,4 +12,5 @@
     <string name="add_plan">Add Plan</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
+    <string name="calendar">Calendar</string>
 </resources>

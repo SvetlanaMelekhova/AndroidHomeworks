@@ -1,12 +1,11 @@
-package by.htp.first.myproject.database
+package by.htp.first.myproject.presenter.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import by.htp.first.myproject.entity.PersonData
-import by.htp.first.myproject.entity.PersonScheduleData
+import by.htp.first.myproject.model.entity.PersonData
+import by.htp.first.myproject.model.entity.PersonScheduleData
 
 @Database (entities = [PersonData::class, PersonScheduleData::class], version = 1, exportSchema = false)
 //@TypeConverters(TypeConverter::class)

@@ -1,11 +1,10 @@
-package by.htp.first.myproject.entity
+package by.htp.first.myproject.model.entity
 
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity(tableName = "person_schedule")
 data class PersonScheduleData(

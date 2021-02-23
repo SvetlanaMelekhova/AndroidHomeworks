@@ -1,4 +1,4 @@
-package by.htp.first.myproject.fragment
+package by.htp.first.myproject.view.fragment.implement
 
 import android.content.Context
 import android.os.Bundle
@@ -8,53 +8,59 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import by.htp.first.myproject.R
-import by.htp.first.myproject.adapter.PersonAdapter
-import by.htp.first.myproject.database.DatabaseRepository
+import by.htp.first.myproject.view.fragment.adapter.PersonAdapter
 import by.htp.first.myproject.databinding.FragmentPersonListBinding
+import by.htp.first.myproject.function.setVisibileOrNot
+import by.htp.first.myproject.model.entity.PersonData
+import by.htp.first.myproject.presenter.FragmentPersonListPresenter
+import by.htp.first.myproject.presenter.implement.FragmentPersonListPresenterImpl
+import by.htp.first.myproject.view.fragment.FragmentLoader
+import by.htp.first.myproject.view.fragment.FragmentPersonList
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
-class FragmentPersonList : Fragment(R.layout.fragment_person_list) {
+class FragmentPersonListImpl : Fragment(R.layout.fragment_person_list), FragmentPersonList {
 
+    private val fragmentPersonListPresenter: FragmentPersonListPresenter = FragmentPersonListPresenterImpl(this)
     private lateinit var loader: FragmentLoader
     private lateinit var personAdapter: PersonAdapter
-    private lateinit var databaseRepository: DatabaseRepository
     private lateinit var binding: FragmentPersonListBinding
-    private lateinit var activityScope: CoroutineScope
+    private lateinit var fab: FloatingActionButton
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loader = requireActivity() as FragmentLoader
-
-        databaseRepository = DatabaseRepository(context as Context)
-        activityScope = CoroutineScope(Dispatchers.Main + Job())
         binding = FragmentPersonListBinding.bind(view)
+        fab = view.rootView.findViewById(R.id.fabAdd)
+        personAdapter = PersonAdapter()
         binding.recyclerViewPersonList.apply {
-            personAdapter = PersonAdapter()
-            activityScope.launch { personAdapter.updateList(databaseRepository.getPersonList()) }
             adapter = personAdapter
             layoutManager = GridLayoutManager(context as Context, 2)
 
             personAdapter.onEditIconClickListener = {
-                 loader.loadFragment(FragmentEditPerson::class.java,
+                 loader.loadFragment(
+                     FragmentEditPerson::class.java,
                     FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
                     bundleOf("personData" to it)
                 )
             }
             personAdapter.onPersonScheduleInfoListListClickListener = {
-                 loader.loadFragment(FragmentScheduleList::class.java,
+                 loader.loadFragment(
+                     FragmentScheduleListImpl::class.java,
                     FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
                     bundleOf("personData" to it)
                 )
             }
+            fragmentPersonListPresenter.fetchData()
         }
 
-        binding.fabAddPerson.setOnClickListener {
+        fab.setOnClickListener {
             loader.loadFragment(FragmentAddPerson(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN )
         }
+    }
+
+    override fun showData(list: List<PersonData>) {
+        personAdapter.updateList(list)
+        binding.tvNoPersonAdded.setVisibileOrNot(personAdapter.itemCount != 0)
     }
 }
 

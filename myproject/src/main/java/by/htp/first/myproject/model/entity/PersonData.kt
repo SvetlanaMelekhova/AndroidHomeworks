@@ -1,4 +1,4 @@
-package by.htp.first.myproject.entity
+package by.htp.first.myproject.model.entity
 
 import android.os.Parcel
 import android.os.Parcelable

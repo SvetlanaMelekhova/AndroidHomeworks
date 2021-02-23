@@ -1,16 +1,11 @@
-package by.htp.first.myproject.adapter
+package by.htp.first.myproject.view.fragment.adapter
 
-import android.app.Person
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import by.htp.first.myproject.R
 import by.htp.first.myproject.databinding.ItemViewPersonBinding
-import by.htp.first.myproject.entity.PersonData
-import by.htp.first.myproject.entity.PersonScheduleData
+import by.htp.first.myproject.model.entity.PersonData
 import com.bumptech.glide.Glide
 
 class PersonAdapter (): RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {

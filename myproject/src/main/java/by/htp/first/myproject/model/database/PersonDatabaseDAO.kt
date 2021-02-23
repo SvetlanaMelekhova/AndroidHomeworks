@@ -1,7 +1,7 @@
-package by.htp.first.myproject.database
+package by.htp.first.myproject.presenter.database
 
 import androidx.room.*
-import by.htp.first.myproject.entity.PersonData
+import by.htp.first.myproject.model.entity.PersonData
 
 @Dao
 interface PersonDatabaseDAO {

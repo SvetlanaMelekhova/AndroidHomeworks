@@ -1,4 +1,4 @@
-package by.htp.first.myproject.database
+package by.htp.first.myproject.presenter.database
 
 
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import by.htp.first.myproject.entity.PersonScheduleData
+import by.htp.first.myproject.model.entity.PersonScheduleData
 
 
 @Dao
