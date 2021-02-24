@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity(), FragmentLoader {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        bottomAppBar = findViewById(R.id.bottom_app_bar)
+      //  bottomAppBar = findViewById(R.id.bottom_app_bar)
         bottomNavigationView = findViewById(R.id.bottomNavigation)
-        setSupportActionBar(bottomAppBar)
+       // setSupportActionBar(bottomAppBar)
         showFragment()
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), FragmentLoader {
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     )
                 }
-                //R.id.item2 -> { loadFragment(FragmentPersonList(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN) }
+               R.id.item2 -> { loadFragment(FragmentCalendarView(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN) }
             }
             true
         }

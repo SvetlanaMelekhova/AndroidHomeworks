@@ -30,7 +30,7 @@
             app:backgroundTint="@color/defaultColorPrimary"
             app:fabAlignmentMode="end"
             app:hideOnScroll="true"
-            app:menu="@menu/menu_bottom_navigation_view">
+            >
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigation"
@@ -42,7 +42,8 @@
                 app:itemIconTint="@drawable/selector"
                 app:backgroundTint="@android:color/transparent"
                 app:elevation="0dp"
-                app:menu="@menu/menu_bottom_navigation_view" />
+                app:menu="@menu/menu_bottom_navigation_view"
+                />
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 

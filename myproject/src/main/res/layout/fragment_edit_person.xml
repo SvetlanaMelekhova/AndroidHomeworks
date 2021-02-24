@@ -57,6 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        android:id="@+id/noPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_photo"
@@ -74,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorAccent"
+        android:background="@null"
         android:src="@drawable/ic_baseline_add_a_photo_24"
         app:layout_constraintBottom_toBottomOf="@id/imageViewPhoto"
         app:layout_constraintEnd_toEndOf="@id/imageViewPhoto" />

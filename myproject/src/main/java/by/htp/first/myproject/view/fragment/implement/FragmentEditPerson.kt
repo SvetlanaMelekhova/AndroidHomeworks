@@ -3,6 +3,7 @@ package by.htp.first.myproject.view.fragment.implement
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -12,6 +13,7 @@ import by.htp.first.myproject.R
 import by.htp.first.myproject.databinding.FragmentEditPersonBinding
 import by.htp.first.myproject.function.createDirectory
 import by.htp.first.myproject.function.saveImage
+import by.htp.first.myproject.function.setVisibileOrNot
 import by.htp.first.myproject.model.entity.PersonData
 import by.htp.first.myproject.presenter.FragmentEditPersonPresenter
 import by.htp.first.myproject.presenter.implement.FragmentEditPersonPresenterImpl
@@ -57,6 +59,10 @@ class FragmentEditPerson: Fragment(R.layout.fragment_edit_person) {
                 currentPersonData = this
                 personId = id
                 val path = pathToPicture
+
+                val selectedImageUri = pathToPicture
+                    //pathToPicture = selectedImageUri.toString()
+                //binding.imageViewPhoto.setImageURI(selectedImageUri)
                 val file = File(path)
                 if (file.exists()) {
                     if (path == "") {
@@ -64,8 +70,14 @@ class FragmentEditPerson: Fragment(R.layout.fragment_edit_person) {
                     } else {
                         Glide.with(context as Context).load(path).into(binding.imageViewPhoto)
                         photoWasLoaded = true
+                        binding.noPhoto.setVisibileOrNot(photoWasLoaded)
                         this@FragmentEditPerson.pathToPicture = path
                     }
+                } else {
+                    Glide.with(context as Context).load(selectedImageUri).into(binding.imageViewPhoto)
+                    photoWasLoaded = true
+                    binding.noPhoto.setVisibileOrNot(photoWasLoaded)
+                    this@FragmentEditPerson.pathToPicture = selectedImageUri
                 }
                 binding.etPersonName.setText(personName)
             }

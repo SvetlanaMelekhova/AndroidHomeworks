@@ -6,12 +6,14 @@
         android:title="@string/title_today"
         android:id="@+id/item1"
         android:icon="@drawable/ic_baseline_schedule_24"
+
         />
 
     <item
         android:title="@string/calendar"
         android:id="@+id/item2"
         android:icon="@drawable/ic_baseline_today_24"
+
         />
 
 </menu>

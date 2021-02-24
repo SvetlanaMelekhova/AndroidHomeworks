@@ -102,7 +102,7 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
         val time = binding.buttonTime.text.toString()
         val data = binding.buttonDate.text.toString()
 
-        if (plan.isNotEmpty() && time.isNotEmpty() && data.isNotEmpty() ) {
+        if (plan.isNotEmpty() && time.isNotEmpty() && data.isNotEmpty() && time != "Time" && data != "Data") {
         presenter.addData(PersonScheduleData(data, time, plan, personId))
         backToMainFragment()
         } else {
