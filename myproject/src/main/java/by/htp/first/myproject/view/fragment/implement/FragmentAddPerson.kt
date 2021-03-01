@@ -18,6 +18,7 @@ import by.htp.first.myproject.function.createDirectory
 import by.htp.first.myproject.function.saveImage
 import by.htp.first.myproject.function.setVisibileOrNot
 import by.htp.first.myproject.model.entity.PersonData
+import by.htp.first.myproject.presenter.FragmentAddPersonPresenter
 import by.htp.first.myproject.presenter.implement.FragmentAddPersonPresenterImpl
 import by.htp.first.myproject.view.fragment.FragmentLoader
 import com.google.android.material.snackbar.Snackbar
@@ -28,7 +29,7 @@ private const val REQUEST_CODE_PHOTO_FROM_GALLERY = 2
 
 class FragmentAddPerson : Fragment(R.layout.fragment_add_person) {
 
-    private val presenter: FragmentAddPersonPresenterImpl = FragmentAddPersonPresenterImpl()
+    private val presenter: FragmentAddPersonPresenter = FragmentAddPersonPresenterImpl()
     private lateinit var loader: FragmentLoader
     private var photoWasLoaded: Boolean = false
     private lateinit var pathToPicture: String
@@ -44,15 +45,14 @@ class FragmentAddPerson : Fragment(R.layout.fragment_add_person) {
     }
 
     private fun setListeners() {
-        /* fragmentAddPersonBinding..setOnClickListener {
-            backToMainFragment()
-        }*/
         binding.buttonAdd.setOnClickListener { addPersonInfo() }
         binding.buttonPhotoCamera.setOnClickListener { choiceImageUploadOption() }
     }
 
     private fun addPersonInfo() {
-        if (!photoWasLoaded) { pathToPicture = "" }
+        if (!photoWasLoaded) {
+            pathToPicture = ""
+        }
         val name = binding.etPersonName.text.toString()
         if (name.isNotEmpty()) {
             presenter.addData(PersonData(pathToPicture, name))
@@ -94,7 +94,6 @@ class FragmentAddPerson : Fragment(R.layout.fragment_add_person) {
     @SuppressLint("InflateParams")
     private fun choiceImageUploadOption() {
         val dialog = AlertDialog.Builder(context as Context)
-
         dialog.apply {
             setTitle(getString(R.string.upload_picture_alert_title))
             setMessage(getString(R.string.alertMessage))

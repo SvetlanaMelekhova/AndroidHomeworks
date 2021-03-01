@@ -2,29 +2,23 @@ package by.htp.first.myproject.view.fragment.implement
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import by.htp.first.myproject.R
-import by.htp.first.myproject.view.fragment.implement.FragmentAllScheduleListImpl
 import by.htp.first.myproject.view.fragment.FragmentLoader
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), FragmentLoader {
 
-    private lateinit var bottomAppBar: BottomAppBar
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
-      //  bottomAppBar = findViewById(R.id.bottom_app_bar)
+        setContentView(R.layout.activity_main)
         bottomNavigationView = findViewById(R.id.bottomNavigation)
-       // setSupportActionBar(bottomAppBar)
         showFragment()
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -35,7 +29,9 @@ class MainActivity : AppCompatActivity(), FragmentLoader {
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     )
                 }
-               R.id.item2 -> { loadFragment(FragmentCalendarView(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN) }
+                R.id.item2 -> {
+                    loadFragment(FragmentCalendarView(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                }
             }
             true
         }
@@ -47,17 +43,11 @@ class MainActivity : AppCompatActivity(), FragmentLoader {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-
-    }
-
     private fun showFragment() {
         supportFragmentManager.commit {
             add<FragmentAllScheduleListImpl>(R.id.fragmentContainer)
         }
     }
-
 
     override fun loadFragment(
         fragmentClass: Class<out Fragment>,

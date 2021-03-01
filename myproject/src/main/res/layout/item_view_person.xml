@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/default_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="@dimen/default_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:background="@color/textColorSecondary">
 
         <ImageView
             android:id="@+id/personPhoto"
-            android:layout_margin="@dimen/default_margin"
             android:layout_width="126dp"
             android:layout_height="140dp"
+            android:layout_margin="@dimen/default_margin"
             android:contentDescription="@string/photo"
             android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:src="@drawable/ic_twotone_face_24"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_twotone_face_24" />
 
         <TextView
             android:id="@+id/personName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="italic"
             android:textColor="@color/defaultColorPrimary"
             android:textSize="14sp"
+            android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="Name" />
 
         <ImageButton
@@ -45,7 +43,7 @@
             android:background="@null"
             android:src="@drawable/ic_twotone_edit_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

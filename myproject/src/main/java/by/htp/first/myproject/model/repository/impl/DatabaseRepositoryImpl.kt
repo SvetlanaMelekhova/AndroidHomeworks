@@ -1,13 +1,14 @@
-package by.htp.first.myproject.model.database
+package by.htp.first.myproject.model.repository.impl
 
 import android.content.Context
 import by.htp.first.myproject.model.entity.PersonData
 import by.htp.first.myproject.model.entity.PersonScheduleData
+import by.htp.first.myproject.model.repository.DatabaseRepository
 import by.htp.first.myproject.presenter.database.PersonDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DatabaseRepository() {
+class DatabaseRepositoryImpl(): DatabaseRepository {
 
     companion object{
         private lateinit var database: PersonDatabase
@@ -16,56 +17,51 @@ class DatabaseRepository() {
         }
     }
 
-    /*withContext(scope.coroutineContext + Dispatchers.IO) {
-        database.getUserInfoDao().addUserInfo(info)
-    }*/
-
-    //private val database = PersonDatabase.getDatabase(context)
     private val threadIO = Dispatchers.IO
 
-    suspend fun addPerson(personData: PersonData) {
+    override suspend fun addPerson(personData: PersonData) {
         withContext(threadIO) {
             database.getPersonDatabaseDAO().addPerson(personData)
         }
     }
 
-    suspend fun deletePerson(personData: PersonData) {
+    override suspend fun deletePerson(personData: PersonData) {
         withContext(threadIO) {
             database.getPersonDatabaseDAO().deletePerson(personData)
         }
     }
 
-    suspend fun getPerson(id: Long): PersonData {
+    override suspend fun getPerson(id: Long): PersonData {
         return withContext(threadIO) {
             database.getPersonDatabaseDAO().getPerson(id)
         }
     }
 
-    suspend fun getPersonList(): List<PersonData> {
+    override suspend fun getPersonList(): List<PersonData> {
         return withContext(threadIO) {
             database.getPersonDatabaseDAO().getPersonList()
         }
     }
 
-    suspend fun updatePerson(personData: PersonData) {
+    override suspend fun updatePerson(personData: PersonData) {
         withContext(threadIO) {
             database.getPersonDatabaseDAO().updatePerson(personData)
         }
     }
 
-    suspend fun addPersonSchedule(personScheduleData: PersonScheduleData) {
+    override suspend fun addPersonSchedule(personScheduleData: PersonScheduleData) {
         withContext(threadIO) {
             database.getPersonScheduleDatabaseDAO().addPersonSchedule(personScheduleData)
         }
     }
 
-    suspend fun deletePersonSchedule(personScheduleData: PersonScheduleData) {
+    override suspend fun deletePersonSchedule(personScheduleData: PersonScheduleData) {
             withContext(threadIO) {
                 database.getPersonScheduleDatabaseDAO().deletePersonSchedule(personScheduleData)
             }
     }
 
-    suspend fun getPersonSchedule(id: Long): PersonScheduleData{
+    override suspend fun getPersonSchedule(id: Long): PersonScheduleData{
         return withContext(threadIO) {
             database.getPersonScheduleDatabaseDAO().getPersonSchedule(id)
         }
@@ -77,19 +73,19 @@ class DatabaseRepository() {
         }
     }*/
 
-    suspend fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>{
+    override suspend fun getAllPersonSchedule(personId: Long): List<PersonScheduleData>{
         return withContext(threadIO) {
             database.getPersonScheduleDatabaseDAO().getAllPersonSchedule(personId)
         }
     }
 
-    suspend fun getPersonScheduleList(): List<PersonScheduleData> {
+    override suspend fun getPersonScheduleList(): List<PersonScheduleData> {
         return withContext(threadIO) {
             database.getPersonScheduleDatabaseDAO().getPersonScheduleList()
         }
     }
 
-    suspend fun updatePersonSchedule(personScheduleData: PersonScheduleData) {
+    override suspend fun updatePersonSchedule(personScheduleData: PersonScheduleData) {
             withContext(threadIO) {
                 database.getPersonScheduleDatabaseDAO().updatePersonSchedule(personScheduleData)
             }

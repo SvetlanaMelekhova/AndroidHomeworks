@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import by.htp.first.myproject.R
 import by.htp.first.myproject.databinding.ItemViewScheduleBinding
 import by.htp.first.myproject.model.entity.PersonScheduleData
+import com.bumptech.glide.Glide
 
 class PersonScheduleAdapter () : RecyclerView.Adapter<PersonScheduleAdapter.PersonScheduleViewHolder>(), Filterable {
     constructor(listSchedule: List<PersonScheduleData>): this () {
@@ -39,7 +41,7 @@ class PersonScheduleAdapter () : RecyclerView.Adapter<PersonScheduleAdapter.Pers
 
     fun updateLists(list: List<PersonScheduleData>) {
         allSchedule = ArrayList(list as ArrayList<PersonScheduleData>)
-        allSchedule.sortBy { it.plan.toLowerCase() }
+        allSchedule.sortBy { it.date.toLowerCase()  }
         scheduleListForFilter = ArrayList(list)
         scheduleListCopyForOrder = ArrayList(list)
 
@@ -57,6 +59,7 @@ class PersonScheduleAdapter () : RecyclerView.Adapter<PersonScheduleAdapter.Pers
                 textViewTime.text = personScheduleData.time
                 textViewPlan.text = personScheduleData.plan
                 textViewDate.text = personScheduleData.date
+
 
                root.setOnClickListener { listener.invoke(personScheduleData) }
 

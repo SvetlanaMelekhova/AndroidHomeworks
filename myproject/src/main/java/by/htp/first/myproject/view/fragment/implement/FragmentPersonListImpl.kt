@@ -20,7 +20,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FragmentPersonListImpl : Fragment(R.layout.fragment_person_list), FragmentPersonList {
 
-    private val fragmentPersonListPresenter: FragmentPersonListPresenter = FragmentPersonListPresenterImpl(this)
+    private val fragmentPersonListPresenter: FragmentPersonListPresenter =
+        FragmentPersonListPresenterImpl(this)
     private lateinit var loader: FragmentLoader
     private lateinit var personAdapter: PersonAdapter
     private lateinit var binding: FragmentPersonListBinding
@@ -35,17 +36,16 @@ class FragmentPersonListImpl : Fragment(R.layout.fragment_person_list), Fragment
         binding.recyclerViewPersonList.apply {
             adapter = personAdapter
             layoutManager = GridLayoutManager(context as Context, 2)
-
             personAdapter.onEditIconClickListener = {
-                 loader.loadFragment(
-                     FragmentEditPerson::class.java,
+                loader.loadFragment(
+                    FragmentEditPerson::class.java,
                     FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
                     bundleOf("personData" to it)
                 )
             }
             personAdapter.onPersonScheduleInfoListListClickListener = {
-                 loader.loadFragment(
-                     FragmentScheduleListImpl::class.java,
+                loader.loadFragment(
+                    FragmentScheduleListImpl::class.java,
                     FragmentTransaction.TRANSIT_FRAGMENT_OPEN,
                     bundleOf("personData" to it)
                 )
@@ -54,7 +54,7 @@ class FragmentPersonListImpl : Fragment(R.layout.fragment_person_list), Fragment
         }
 
         fab.setOnClickListener {
-            loader.loadFragment(FragmentAddPerson(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN )
+            loader.loadFragment(FragmentAddPerson(), FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
         }
     }
 

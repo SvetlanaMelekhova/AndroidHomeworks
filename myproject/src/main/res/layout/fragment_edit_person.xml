@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:background="@color/textColorSecondary">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,24 +21,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/edit_person"
                 android:layout_marginStart="16dp"
-                android:textSize="24sp"
+                android:text="@string/edit_person"
                 android:textColor="@color/white"
+                android:textSize="24sp"
                 android:textStyle="italic"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_done_24"
                 android:backgroundTint="@color/defaultColorPrimary"
+                android:src="@drawable/ic_baseline_done_24"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -52,30 +50,30 @@
         android:layout_height="340dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/shape3"
-        app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/mainToolbar" />
 
     <TextView
         android:id="@+id/noPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_photo"
+        android:textAlignment="center"
         android:textColor="@color/defaultColorPrimary"
         android:textSize="20sp"
         android:textStyle="bold|italic"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="@id/imageViewPhoto"
         app:layout_constraintBottom_toBottomOf="@id/imageViewPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/imageViewPhoto" />
 
     <ImageButton
         android:id="@+id/buttonPhotoCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
         android:background="@null"
+        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_baseline_add_a_photo_24"
         app:layout_constraintBottom_toBottomOf="@id/imageViewPhoto"
         app:layout_constraintEnd_toEndOf="@id/imageViewPhoto" />
@@ -88,8 +86,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:boxStrokeColor="@color/defaultColorPrimary"
-        app:boxStrokeWidthFocused="3dp"
         app:boxStrokeWidth="5dp"
+        app:boxStrokeWidthFocused="3dp"
         app:hintTextColor="@color/defaultColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,10 +98,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/textColorSecondary"
-            android:hint="Name"
-            android:textCursorDrawable="@drawable/cursor_color"
             android:backgroundTintMode="screen"
+            android:hint="Name"
             android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>

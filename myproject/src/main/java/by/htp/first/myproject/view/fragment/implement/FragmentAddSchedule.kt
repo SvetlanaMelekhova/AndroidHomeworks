@@ -1,6 +1,5 @@
 package by.htp.first.myproject.view.fragment.implement
 
-import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
@@ -15,9 +14,11 @@ import by.htp.first.myproject.model.entity.PersonScheduleData
 import by.htp.first.myproject.presenter.FragmentAddSchedulePresenter
 import by.htp.first.myproject.presenter.implement.FragmentAddSchedulePresenterImpl
 import by.htp.first.myproject.view.fragment.FragmentLoader
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.TimeZone
 
 class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
 
@@ -33,24 +34,24 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
         loadDataFromBundle(requireArguments())
         binding = FragmentAddPlanBinding.bind(view)
 
+        val builder = MaterialDatePicker.Builder.datePicker()
+        builder.setTitleText("Select a Date")
+        val picker = builder.build()
         binding.buttonDate.setOnClickListener {
-
-            val cal = Calendar.getInstance()
-            val y = cal.get(Calendar.YEAR)
-            val m = cal.get(Calendar.MONTH)
-            val d = cal.get(Calendar.DAY_OF_MONTH)
-            val datePickerDialog = DatePickerDialog(
-                context as Context,
-                R.style.DateAndTimePicker,
-                { view, year, monthOfYear, dayOfMonth ->
-                    binding.buttonDate.text = SimpleDateFormat("EEE, d MMM yyyy").format(cal.time)
-                }, y, m, d
-            )
-            datePickerDialog.show()
+            picker.show(activity?.supportFragmentManager!!, picker.toString())
+            picker.addOnPositiveButtonClickListener {
+                val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                val date = "${calendar.get(Calendar.DAY_OF_MONTH)}/ " +
+                        "${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}"
+                val sdf = SimpleDateFormat("dd/MM/yyyy")
+                val d = sdf.parse(date)
+                sdf.applyPattern("EEE, d MMM yyyy")
+                val newDateString = sdf.format(d)
+                binding.buttonDate.text = newDateString
+            }
         }
 
         binding.buttonTime.setOnClickListener {
-
             val c: Calendar = Calendar.getInstance()
             val hh = c.get(Calendar.HOUR_OF_DAY)
             val mm = c.get(Calendar.MINUTE)
@@ -69,42 +70,14 @@ class FragmentAddSchedule : Fragment(R.layout.fragment_add_plan) {
         }
     }
 
-    /*suspend fun Context.openDateTimePicker(calendar: Calendar = Calendar.getInstance()): Instant =
-        suspendCoroutine { continuation ->
-            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
-                val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hour, minute ->
-                    calendar
-                        .apply { set(year, month, day, hour, minute) }
-                        .run { Instant.ofEpochMilli(timeInMillis).truncatedTo(ChronoUnit.MINUTES) }
-                        .let { continuation.resume(it) }
-                }
-
-                TimePickerDialog(
-                    this,
-                    timeSetListener,
-                    calendar.get(Calendar.HOUR_OF_DAY),
-                    calendar.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(this)
-                ).show()
-            }
-
-            DatePickerDialog(
-                this,
-                dateSetListener,
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-            ).show()
-        }*/
-
     private fun addPlan() {
         val plan = binding.etPlan.text.toString()
         val time = binding.buttonTime.text.toString()
         val data = binding.buttonDate.text.toString()
 
         if (plan.isNotEmpty() && time.isNotEmpty() && data.isNotEmpty() && time != "Time" && data != "Data") {
-        presenter.addData(PersonScheduleData(data, time, plan, personId))
-        backToMainFragment()
+            presenter.addData(PersonScheduleData(data, time, plan, personId))
+            backToMainFragment()
         } else {
             Snackbar.make(binding.etPlan, "Fields can't be empty", Snackbar.LENGTH_LONG)
                 .show()
