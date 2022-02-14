@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Homework5</string>
+    <string name="no_cars_added">No cars added!</string>
+    <string name="car_list">Car List</string>
+    <string name="car_add">Car add</string>
+    <string name="car_photo">Car photo</string>
+    <string name="edit_car">Edit car</string>
+    <string name="car_owner">Owner</string>
+    <string name="car_brand">Car brand</string>
+    <string name="gos_number">Gos number</string>
+
+
+
+
+</resources>
