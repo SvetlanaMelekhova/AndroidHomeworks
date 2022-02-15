@@ -1,0 +1,42 @@
+<resources>
+    <string name="car_list">Список автомобилей</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="car_name">Марка машины</string>
+    <string name="no_number">no number</string>
+    <string name="no_cars_added">Список автомобилей пуст</string>
+    <string name="add_car">Добавить автомобиль</string>
+    <string name="back">Назад</string>
+    <string name="no_image">Нет фотографии</string>
+    <string name="owner_name">Имя владельца</string>
+    <string name="producer">Марка автомобиля</string>
+    <string name="plate_number">Регистрационный номер</string>
+    <string name="model">Модель</string>
+    <string name="take_a_photo">Сделать фотографию</string>
+    <string name="fill_out_form">Пожалйуста, заполните всю форму</string>
+    <string name="selectProgress">Выберите стадию работы</string>
+    <string name="fillAllFields">Заполните всю форму</string>
+    <string name="complete">готово</string>
+    <string name="in_progress">в процессе</string>
+    <string name="pending">в ожидании</string>
+    <string name="edit">Редактировать</string>
+    <string name="remove_work">Удалить работу</string>
+    <string name="deleteWorkMessage">Удалить эту работу?</string>
+    <string name="yesButton">Да</string>
+    <string name="cancelButton">Выход</string>
+    <string name="car_works">Автомобильные работы</string>
+    <string name="add_work">Добавить работу</string>
+    <string name="application_data_text">Дата заявки - </string>
+    <string name="time">Время</string>
+    <string name="work_name">Название работы</string>
+    <string name="description">Описание</string>
+    <string name="cost">Стоимость</string>
+    <string name="arrow_forward">Стрелка вперед</string>
+    <string name="car_info">Информация об автомобиле</string>
+    <string name="no_works_added">Список работ пуст </string>
+    <string name="work_progress">Статус работы</string>
+    <string name="progress_text">статус</string>
+    <string name="type_of_work">Тип работы</string>
+    <string name="view_background">задний фон</string>
+    <string name="search">поиск</string>
+
+</resources>
