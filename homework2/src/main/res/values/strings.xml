@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Homework2</string>
+    <string name="generated_numbers">Сгенерированные числа:</string>
+    <string name="sum">Сумма чисел = </string>
+    <string name="arithmetic_mean">Среднее арифметическое чисел =</string>
+    <string name="devision">Результат деления одной части на другую =</string>
+
+</resources>

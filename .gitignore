@@ -1,18 +1,24 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
 /captures
 .externalNativeBuild
-.cxx
+
 local.properties
+.idea/*
+build/
+*.bat
+gradlew
+app/app.iml
+
+# Built application files
+/*/build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+<<<<<<< HEAD
 /homework5_1/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml
 /homework5_1/build/generated/source/buildConfig/debug/by/htp/first/homework5_1/BuildConfig.java
 /homework5_1/build/generated/source/kapt/debug/by/htp/first/homework5_1/database/CarDatabase_Impl.java
@@ -1677,3 +1683,24 @@ local.properties
 /homework4_2/build/outputs/logs/manifest-merger-debug-report.txt
 /homework4_2/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt
 /homework4_2/build/tmp/kotlin-classes/debug/META-INF/homework4_2_debug.kotlin_module
+=======
+
+# Gradle generated files
+.gradle/
+
+# Signing files
+.signing/
+
+# User-specific configurations
+*.iml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+>>>>>>> master
