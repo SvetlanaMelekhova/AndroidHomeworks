@@ -17,6 +17,7 @@ include ':homework6_1_2'
 include ':homework8_1'
 include ':homework8_2'
 include ':homework9'
+include ':homework11'
 include ':MyProject'
 include ':app'
 rootProject.name = "AndroidHomeworks"
