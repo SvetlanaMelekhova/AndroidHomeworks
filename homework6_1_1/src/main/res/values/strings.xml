@@ -1,0 +1,42 @@
+<resources>
+    <string name="car_list">Car List 6_1</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="car_name">Car Name</string>
+    <string name="no_number">no number</string>
+    <string name="no_cars_added">No cars added</string>
+    <string name="add_car">Add car</string>
+    <string name="back">Back</string>
+    <string name="no_image">No photo</string>
+    <string name="owner_name">Owner name</string>
+    <string name="producer">Producer</string>
+    <string name="plate_number">Plate number</string>
+    <string name="model">Model</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="fill_out_form">Please, fill out this form</string>
+    <string name="selectProgress">Select one of the work progress buttons</string>
+    <string name="fillAllFields">Fill all fields!</string>
+    <string name="completed">completed</string>
+    <string name="in_progress">in progress</string>
+    <string name="pending">pending</string>
+    <string name="edit">Edit</string>
+    <string name="remove_work">Remove work</string>
+    <string name="deleteWorkMessage">Delete this work?</string>
+    <string name="yesButton">Yes</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="car_works">Car works</string>
+    <string name="add_work">Add work</string>
+    <string name="application_data_text">Application data - </string>
+    <string name="time">Time</string>
+    <string name="work_name">Work name</string>
+    <string name="description">Description</string>
+    <string name="cost">Cost</string>
+    <string name="arrow_forward">Arrow forward</string>
+    <string name="car_info">Car info</string>
+    <string name="no_works_added">No works added</string>
+    <string name="work_progress">Work Progress</string>
+    <string name="progress_text">progress</string>
+    <string name="type_of_work">Type of work</string>
+    <string name="view_background">view background</string>
+    <string name="search">search</string>
+
+</resources>
